@@ -8,16 +8,20 @@ The Kinetic Plugin is a powerful tool that lets you work directly with Kin on th
 
 <div className="mt-8 grid gap-6 md:grid-cols-2">
   <NavCard
-    title="Play With Kin"
+    title="Kinetic Bubble Demo"
     subtitle="Check out a simple demo app built on Bubble that can interact with Kin on the Solana blockchain."
     pngFile="bubble"
     link={{ url: 'https://kin-kinetic-demo.bubbleapps.io/version-test?debug_mode=true', label: 'Have a look' }}
   />
+  <NavCard
+    title="Behind The Scenes"
+    subtitle="Check out the workflows, conditional logic etc used to build the Kinetic Bubble Demo app."
+    pngFile="bubble"
+    link={{ url: 'https://bubble.io/page?name=index&id=kin-kinetic-demo&tab=tabs-1', label: 'Take a peek' }}
+  />
 </div>
 
 ![Kin Kinetic Plugin Demo on Bubble](/images/no-code/Bubble-Kinetic-Demo.gif)
-
-<br />
 
 Building your own app on Bubble with the Kin Kinetic Plugin is incredibly straightforward. Just follow the steps below to start transacting with Kin in your app.
 
@@ -55,7 +59,7 @@ The main actions we care about are the ones explained in-depth below.
 
 In terms of settings, lets keep it simple for now so we can get up and running as quickly as possible.
 
-### Devnet Settings
+### Kinetic Plugin Devnet Settings
 
 We want to make sure stuff works on the Solana test environment before moving to the 'mainnet'.
 
@@ -260,7 +264,7 @@ Now for the real stuff! We're going to send some of our Kin to another Account.
 - Add an action via `Plugins / Kinetic Make Transfer`.
 - Set 'destination' to a dynamic value of `Input Send Kin Destination's value`
 - Set 'amount' to a dynamic value of `Input Send Kin Amount's value`
-- Set 'type' to a dynamic value of `Dropdown Send Kin Transaction Type's value`
+- Set 'type' to a dynamic value of `Dropdown Send Kin Transaction Type's value`. Learn more about [Spend](/docs/essentials/terms-and-concepts#spend), [Earn](/docs/essentials/terms-and-concepts#earn) and [P2P](/docs/essentials/terms-and-concepts#p2p) in our [Terms and Concepts](/docs/essentials/terms-and-concepts) page.
   ![Send Kin](/images/no-code/Bubble-send-kin-action.png)
 
 Again, after completing the Transfer, we'd like to update the balance.
@@ -326,6 +330,21 @@ Congratulations on making it this far! You can now carry out all of the actions 
 
 Now, we don't claim to be experts in how Bubble works, so I'm sure there are many more elegant ways to implement the UX for a Bubble app than we've shown here. But this should be a solid starting point for anyone wanting to work with Kin via Bubble. Happy building!
 
+## Commitment
+
+When creating accounts or transferring Kin, you can set the 'Commitment' level.
+![Send Kin](/images/no-code/Bubble-commitment.png)
+
+The default is 'Finalized', meaning that you'll have total certainty that a transaction has completed.
+
+E.g. in a workflow where you want to transfer Kin then check the balance, using 'Finalized' would make sure the balance was updated on-chain before the balance check.
+
+But, this means the transaction takes longer to return. If you want to to have a more dynamic user experience, you could use 'Processed', but would have to take into account that the transaction could possibly not complete on-chain.
+
+Something for app developers to consider!
+
+Learn more about commitment [here](/docs/essentials/terms-and-concepts#commitment).
+
 ## Error Handling
 
 If an error occurs with a Kinetic transaction, you'll see a value in local storage called `error` with the value being the method that failed. You can use this to drive your UI and let users know if an error has occurred.
@@ -340,7 +359,7 @@ Created to help get you up and running as quickly as possible, these projects ca
     title="Kinetic Bubble Demo"
     subtitle="Check out a simple demo app built on Bubble that can interact with Kin on the Solana blockchain."
     pngFile="bubble"
-    link={{ url: 'https://kin-kinetic-demo.bubbleapps.io/version-test?debug_mode=true', label: 'Play here' }}
+    link={{ url: 'https://kin-kinetic-demo.bubbleapps.io/version-test?debug_mode=true', label: 'Have a look' }}
   />
   <NavCard
     title="Behind The Scenes"
@@ -350,13 +369,36 @@ Created to help get you up and running as quickly as possible, these projects ca
   />
 </div>
 
-![Kin Kinetic Plugin Demo on Bubble](/images/no-code/Bubble-Kinetic-Demo.gif)
-
 ## Ready for Production?
 
-You'll need to tweak your app settings once you are ready to run on the 'mainnet' and make real transactions.
+To transact for real on Solana, you'll need to connect to a Kinetic instance that support mainnet.
 
-Get in touch via the [Kin Developer Discord](https://discord.com/invite/kdRyUNmHDn) and head to the `kinetic-bubble` [channel](https://discord.com/channels/808859554997469244/1029511952478773308) to let us know when you're ready!
+You can do this in two ways:
+
+<div className="mt-8 grid gap-6 md:grid-cols-2">
+  <NavCard
+    title="Kinetic As A Service"
+    subtitle="Connect to a Kinetic Service hosted by a 3rd party."
+    svgFile="globe-solid"
+    link={{ url: '/docs/kinetic/kinetic-as-a-service', label: 'Find out more' }}
+  />
+  <NavCard
+    title="Self Hosted"
+    subtitle="Host and manage your own Kinetic instance."
+    svgFile="server-solid"
+    link={{ url: '/docs/kinetic/kinetic-in-production/#self-hosted', label: 'Learn more' }}
+  />
+</div>
+
+Once you've got access to mainnet via Kinetic, you can change your plugin settings.
+
+### Kinetic Plugin Mainnet Settings
+
+```shell
+endpoint - https://your_kinetic_endpoint.com
+environment - mainnet
+index - your app index
+```
 
 ## Earn Kin via the KRE
 
