@@ -24,7 +24,7 @@ We recommend starting with Devnet before moving on to Mainnet.
 import { KineticSdk } from '@kin-kinetic/sdk'
 
 const clientOptions = {
-  environment: 'devnet', // mainnet or devnet
+  environment: 'devnet', // the name of your environment, e.g. devnet, mainnet
   index: 1, // your App Index
   endpoint: 'https://sandbox.kinetic.host', // devnet endpoint
 }
@@ -42,7 +42,10 @@ While you're waiting for confirmation of your App Index, use `1` on devnet so yo
 
 You can create accounts randomly or from existing mnemonics or secret keys. Below, we'll make a keypair and use that for creating an account on the blockchain.
 
+You can also generate keypairs and create accounts on devnet via the [Kin Laboratory](https://laboratory.kin.org/keypairs).
+
 ```js
+import { Keypair } from '@kin-kinetic/keypair'
 import { Commitment } from '@kin-kinetic/solana'
 
 const mnemonic = Keypair.generateMnemonic()
@@ -52,6 +55,20 @@ const accountOptions = {
   commitment: Commitment.Finalized, // Optional, can be Finalized, Confirmed, Processed
 }
 await kineticClient.createAccount(accountOptions)
+```
+
+### Close Account
+
+It's good practice to close unneeded accounts. You can only close accounts that you have created and are currently empty.
+
+```js
+import { Commitment } from '@kin-kinetic/solana'
+
+const closeAccountOptions = {
+  account: keypair.publicKey,
+  commitment: Commitment.Finalized, // Optional, can be Finalized, Confirmed, Processed
+}
+await kineticClient.closeAccount(closeAccountOptions)
 ```
 
 ### Check Balance
@@ -69,6 +86,8 @@ const { balance } = await kineticClient.getBalance(balanceOptions)
 
 Send some test funds to a specific Public Key on Devnet.
 
+Or visit the [Kin Laboratory](https://laboratory.kin.org/airdrop) to do it with a click!
+
 ```js
 import { Commitment } from '@kin-kinetic/solana'
 
@@ -84,6 +103,8 @@ await kineticClient.requestAirdrop(airdropOptions)
 
 Transfer Kin from a Keypair to any Public Key.
 
+Make sure to include your Transaction Type if you want it to count towards the KRE.
+
 ```js
 import { Commitment, TransactionType } from '@kin-kinetic/solana';
 
@@ -93,15 +114,14 @@ const transferOptions = {
   owner: keypair,
   commitment: Commitment.Finalized, // Optional, can be Finalized, Confirmed, Processed
   type: TransactionType.P2P, // Optional, can be Unknown, None, Earn, Spend or P2P,
-  referenceId: 'some id', // Optional, stored off-chain and returned via webhooks
-  referenceType: 'some reference'; // Optional, stored off-chain and returned via webhooks
+  reference: 'some reference'; // Optional, stored off-chain and returned via webhooks
   senderCreate: false; // Optional, will make a Kin Token Account at that destination if true
 }
 
 await kineticClient.makeTransfer(transferOptions)
 ```
 
-Note - `referenceId` and `referenceType` are stored off chain and will be passed back to the app via webhooks if they are set up.
+Note - `reference` is stored off chain and will be passed back to the app via webhooks if they are set up.
 
 ### Transfer Kin Batch
 
@@ -113,15 +133,15 @@ import { Commitment } from '@kin-kinetic/solana'
 const destinations = [
   {
     amount: '500',
-    destination: destination: `BQJi5K2s4SDDbed1ArpXjb6n7yVUfM34ym9a179MAqVo`,
+    destination: `BQJi5K2s4SDDbed1ArpXjb6n7yVUfM34ym9a179MAqVo`,
   },
   {
     amount: '600',
-    destination: destination: `BQJi5K2s4SDDbed1ArpXjb6n7yVUfM34ym9a179MAqVo`,
+    destination: `BQJi5K2s4SDDbed1ArpXjb6n7yVUfM34ym9a179MAqVo`,
   },
   {
     amount: '800',
-    destination: destination: `BQJi5K2s4SDDbed1ArpXjb6n7yVUfM34ym9a179MAqVo`,
+    destination: `BQJi5K2s4SDDbed1ArpXjb6n7yVUfM34ym9a179MAqVo`,
   },
 ]
 
@@ -129,8 +149,7 @@ const transferBatchOptions = {
     owner: keypair,
     destinations,
     commitment: Commitment.Finalized, // Optional, can be Finalized, Confirmed, Processed
-    referenceId: 'some id', // Optional, stored off-chain and returned via webhooks
-    referenceType: 'some reference'; // Optional, stored off-chain and returned via webhooks
+    reference: 'some reference'; // Optional, stored off-chain and returned via webhooks
     senderCreate: false; // Optional, will make a Kin Token Account at that destination if true
 };
 
@@ -161,6 +180,24 @@ Get the full transaction history of any account by passing in the account's Publ
 ```js
 const historyOptions = { account: keypair.publicKey }
 await kineticClient.getHistory(historyOptions)
+```
+
+### Get Account Info
+
+Easily get the main info of any account by passing in the account's Public Key.
+
+```js
+const getAccountInfoOptions = { account: keypair.publicKey }
+await kineticClient.getAccountInfo(getAccountInfoOptions)
+```
+
+### Get Token Accounts
+
+Get the full list of [Token Accounts](/docs/essentials/terms-and-concepts#token-account) held by a Keypair on Solana.
+
+```js
+const tokenAccountOptions = { account: keypair.publicKey }
+await kineticClient.getTokenAccounts(tokenAccountOptions)
 ```
 
 ### Webhooks
@@ -343,11 +380,11 @@ await kinClient.requestAirdrop(tokenAccountPublicKey, quarks)
 
 ```js
 // Kinetic
-await kinClient.makeTransfer({ amount, destination, owner, commitment, type, referenceId, referenceType, senderCreate })
+await kinClient.makeTransfer({ amount, destination, owner, commitment, type, reference, referenceType, senderCreate })
 
 // Agora
 await kinClient.submitPayment({ quarks, destination, sender, type })
-// The Agora invoice option has been replaced by 'referenceId' and 'referenceType'
+// The Agora invoice option has been replaced by 'reference'
 ```
 
 **Transfer Kin Batch**

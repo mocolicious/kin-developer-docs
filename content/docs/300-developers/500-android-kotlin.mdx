@@ -55,14 +55,23 @@ Don't have an App Index? Register your app on our Developer Portal so you can ge
 
 While you're waiting for confirmation of your App Index, use `1` on devnet so you can get started.
 
-
 ### Create Account
 
 You can create accounts randomly or from existing mnemonics or secret keys. Below, we'll make a keypair and use that for creating an account on the blockchain.
 
+You can also generate keypairs and create accounts on devnet via the [Kin Laboratory](https://laboratory.kin.org/keypairs).
+
 ```kotlin
 val owner = Keypair.random()
 val transaction = kinetic.createAccount(owner)
+```
+
+### Close Account
+
+It's good practice to close unneeded accounts. You can only close accounts that you have created and are currently empty.
+
+```kotlin
+val transaction = kinetic.closeAccount(owner.publicKey)
 ```
 
 ### Check Balance
@@ -79,6 +88,8 @@ val balance = kinetic.getBalance(owner.publicKey).balance
 
 Send some test funds to a specific Public Key on Devnet.
 
+Or visit the [Kin Laboratory](https://laboratory.kin.org/airdrop) to do it with a click!
+
 ```kotlin
 val airdropSignature = kinetic.requestAirdrop(owner.publicKey).signature
 ```
@@ -87,11 +98,14 @@ val airdropSignature = kinetic.requestAirdrop(owner.publicKey).signature
 
 Transfer Kin from a Keypair to any Public Key.
 
+Make sure to include your Transaction Type if you want it to count towards the KRE.
+
 ```kotlin
 val txSignature = kinetic.makeTransfer(
 	"5000",
 	"BQJi5K2s4SDDbed1ArpXjb6n7yVUfM34ym9a179MAqVo",
-	owner
+	owner,
+	type = KinBinaryMemo.TransactionType.Spend
 ).signature
 ```
 
@@ -117,6 +131,22 @@ Get the full transaction history of any account by passing in the account's Publ
 
 ```kotlin
 val accountHistory = kinetic.getHistory(owner.publicKey)
+```
+
+### Get Account Info
+
+Easily get the main info of any account by passing in the account's Public Key.
+
+```kotlin
+val accountInfo = kinetic.getAccountInfo(owner.publicKey)
+```
+
+### Get Token Accounts
+
+Get the full list of [Token Accounts](/docs/essentials/terms-and-concepts#token-account) held by a Keypair on Solana.
+
+```kotlin
+val tokenAccounts = kinetic.getTokenAccounts(owner.publicKey)
 ```
 
 ## Demos and Starter Kits

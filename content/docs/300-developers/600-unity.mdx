@@ -29,7 +29,7 @@ sdk = await KineticSdk.Setup(
     new KineticSdkConfig(
     index: 1, // Add your own App Index here
     endpoint: "https://sandbox.kinetic.host",
-    environment: KineticSdkEndpoint.Devnet,
+    environment: "devnet",
     )
 );
 ```
@@ -44,10 +44,20 @@ While you're waiting for confirmation of your App Index, use `1` on devnet so yo
 
 You can create accounts randomly or from existing mnemonics or secret keys. Below, we'll make a keypair and use that for creating an account on the blockchain.
 
+You can also generate keypairs and create accounts on devnet via the [Kin Laboratory](https://laboratory.kin.org/keypairs).
+
 ```c#
 var mnemonic = Keypair.GenerateMnemonic();
 var keypair = Keypair.FromMnemonic(mnemonic);
 await sdk.CreateAccount(keypair);
+```
+
+### Close Account
+
+It's good practice to close unneeded accounts. You can only close accounts that you have created and are currently empty.
+
+```c#
+await sdk.CloseAccount(keypair.PublicKey);
 ```
 
 ### Check Balance
@@ -64,6 +74,8 @@ var balance = await sdk.GetBalance(keypair.PublicKey);
 
 Send some test funds to a specific Public Key on Devnet.
 
+Or visit the [Kin Laboratory](https://laboratory.kin.org/airdrop) to do it with a click!
+
 ```c#
 await sdk.RequestAirdrop( account: keypair.PublicKey, amount: "1000" );
 ```
@@ -71,6 +83,8 @@ await sdk.RequestAirdrop( account: keypair.PublicKey, amount: "1000" );
 ### Transfer Kin
 
 Transfer Kin from a Keypair to any Public Key.
+
+Make sure to include your Transaction Type if you want it to count towards the KRE.
 
 ```c#
 await sdk.MakeTransfer(
@@ -95,6 +109,22 @@ Get the full transaction history of any account by passing in the account's Publ
 
 ```c#
 await sdk.GetHistory(account: keypair.PublicKey);
+```
+
+### Get Account Info
+
+Easily get the main info of any account by passing in the account's Public Key.
+
+```c#
+await sdk.GetAccountInfo(account: keypair.PublicKey);
+```
+
+### Get Token Accounts
+
+Get the full list of [Token Accounts](/docs/essentials/terms-and-concepts#token-account) held by a Keypair on Solana.
+
+```c#
+await sdk.GetTokenAccounts(account: keypair.PublicKey);
 ```
 
 ### Webhooks
