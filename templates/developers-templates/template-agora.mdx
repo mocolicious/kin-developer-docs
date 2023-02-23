@@ -243,51 +243,51 @@ Here, we will outline the key API changes from the old version of our SDK to the
 ```js
 // Kinetic
 import { KineticSdk } from '@kin-kinetic/sdk'
-const kinClient = await KineticSdk.setup({ environment, index })
+const client = await KineticSdk.setup({ environment, index })
 
 // Agora
 import { Client } from '@kinecosystem/kin-sdk-v2'
-const kinClient = new Client(env, { appIndex })
+const client = new Client(env, { appIndex })
 ```
 
 **Create Account**
 
 ```js
 // Kinetic
-await kinClient.createAccount({ owner: keypair })
+await client.createAccount({ owner: keypair })
 
 // Agora
-await kinClient.createAccount(privateKey)
+await client.createAccount(privateKey)
 ```
 
 **Check Balance**
 
 ```js
 // Kinetic
-const { balance } = await kinClient.getBalance({ account })
+const { balance } = await client.getBalance({ account })
 
 // Agora
-const balance = await kinClient.getBalance(publicKey)
+const balance = await client.getBalance(publicKey)
 ```
 
 **Airdrop Funds (devnet)**
 
 ```js
 // Kinetic
-await kinClient.requestAirdrop({ account, amount })
+await client.requestAirdrop({ account, amount })
 
 // Agora
-await kinClient.requestAirdrop(tokenAccountPublicKey, quarks)
+await client.requestAirdrop(tokenAccountPublicKey, quarks)
 ```
 
 **Transfer Kin**
 
 ```js
 // Kinetic
-await kinClient.makeTransfer({ amount, destination, owner, type })
+await client.makeTransfer({ amount, destination, owner, type })
 
 // Agora
-await kinClient.submitPayment({ quarks, destination, sender, type })
+await client.submitPayment({ quarks, destination, sender, type })
 ```
 
 **Transfer Kin Batch**
@@ -295,11 +295,11 @@ await kinClient.submitPayment({ quarks, destination, sender, type })
 ```js
 // Kinetic
 const destinations = [{ destination, amount }]
-await kinClient.makeTransferBatch({ owner, destinations })
+await client.makeTransferBatch({ owner, destinations })
 
 // Agora
 const earns = [{ destination, quarks }]
-await kinClient.submitEarnBatch({ sender, earns })
+await client.submitEarnBatch({ sender, earns })
 ```
 
 **Get Transaction Details**

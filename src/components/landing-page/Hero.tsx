@@ -23,25 +23,25 @@ export const Hero: FC = () => {
         </div>
       </div>
       <div className="my-10 mx-auto mb-0 max-w-5xl space-y-12 px-3">
-        <NavCard
+        {/* <NavCard
           hero
           title="Kin Essentials"
           subtitle="Earn via the Kin Rewards Engine. Build with best in class No-Code and SDK tools."
           svgFile="kin-circle-white"
           link={{ url: '/docs/essentials', label: 'See more' }}
-        />
-        <NavCard
+        /> */}
+        {/* <NavCard
           hero
           title="Use Cases"
           subtitle="See how our top earning apps use Kin to their advantage."
           svgFile="kin-circle-white"
           link={{ url: '/docs/use-cases', label: 'See more' }}
-        />
+        /> */}
         <div className=" mx-auto my-0 grid w-full max-w-5xl gap-6 md:grid-cols-2">
           <NavCard
             hero
             title="Love Coding? Use our SDKs"
-            subtitle="Harness the power of Kin with our range of SDKs."
+            subtitle="Harness the power of Kinetic with our range of SDKs."
             svgFile="kin-circle-white"
             link={{ url: '/docs/developers', label: 'See more' }}
           />

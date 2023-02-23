@@ -27,8 +27,6 @@ This transaction contains 3 instructions.
 
 We can see above that the first instruction uses the `Memo Program` and contains the data `ZaAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=`.
 
-Using our [Kin Laboratory](https://laboratory.kin.org/memo), we can parse that string to see the details of the memo.
-
 ![Parsed Memo](/images/sdk-less/SDKless-03-parse-memo.png)
 
 We can also use the Laboratory to create correctly formatted memos in the first place.
@@ -62,14 +60,6 @@ const transaction = new Transaction()
 
 await sendTransaction(transaction, connection)
 ```
-
-## Did It Work?
-
-To check if your transaction was correctly formatted, again head over to our [Kin Laboratory](https://laboratory.kin.org/transaction) and check the status of your transaction.
-
-![KIN Transaction](/images/sdk-less/SDKless-05-transaction.png)
-
-You should also be able to see the transaction when you log in to the [Kin Developer Portal](https://portal.kin.org/dashboard).
 
 ![KIN Transaction](/images/sdk-less/SDKless-06-transaction-dev-portal.png)
 

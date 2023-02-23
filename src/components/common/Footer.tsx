@@ -7,19 +7,19 @@ const isExternalUrl = (link: string): boolean => {
   return !link.startsWith('/')
 }
 
-const kinWebsiteLink = 'https://www.kin.org/'
+const kinWebsiteLink = 'https://www.kinny.io/'
 const contentlayerLink = 'https://github.com/contentlayerdev/contentlayer'
 const content = {
   note: (
     <>
       <p>
-        A project by{' '}
+        A service by{' '}
         <Link href={kinWebsiteLink}>
           <a
             className="inline-flex items-center space-x-1 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"
             target={isExternalUrl(kinWebsiteLink) ? '_blank' : undefined}
           >
-            <span>{`The Kin Ecosystem`}</span>
+            <span>{`Kinny`}</span>
             {isExternalUrl(kinWebsiteLink) && (
               <span className="inline-block w-4">
                 <Icon name="external-link" />
@@ -51,12 +51,12 @@ const content = {
     {
       title: 'Quick Links',
       elements: [
-        { label: 'Kin Website', url: 'https://kin.org' },
-        { label: 'Kin News', url: 'https://kin.org/news' },
-        { label: 'Privacy Policy', url: 'https://kin.org/privacy-policy/' },
-        { label: 'Cookie Policy', url: 'https://kin.org/cookie-policy/' },
-        { label: 'Terms & Conditions', url: 'https://kin.org/terms-of-use-agreement/' },
-        { label: 'Developer Terms', url: 'https://kin.org/kin-developer-terms/' },
+        // { label: 'Kin Website', url: 'https://kin.org' },
+        // { label: 'Kin News', url: 'https://kin.org/news' },
+        { label: 'Privacy Policy', url: '#' },
+        { label: 'Cookie Policy', url: '#' },
+        { label: 'Terms & Conditions', url: '#' },
+        { label: 'Developer Terms', url: '#' },
       ],
     },
     {
@@ -64,34 +64,34 @@ const content = {
       elements: [
         {
           label: 'Twitter',
-          url: 'https://twitter.com/Kin_Ecosystem',
+          url: 'https://twitter.com/KinnyTech',
         },
-        {
-          label: 'Reddit',
-          url: 'https://www.reddit.com/r/kin/',
-        },
+        // {
+        //   label: 'Reddit',
+        //   url: 'https://www.reddit.com/r/kin/',
+        // },
         {
           label: 'LinkedIn',
-          url: 'https://www.linkedin.com/company/kin-ecosystem/',
+          url: 'https://www.linkedin.com/company/80843038/',
         },
-        {
-          label: 'Instagram',
-          url: 'https://www.instagram.com/kin_ecosystem/?hl=en',
-        },
-        {
-          label: 'Facebook',
-          url: 'https://www.facebook.com/KinEcosystem/',
-        },
-        {
-          label: 'Youtube',
-          url: 'https://www.youtube.com/c/KinEcosystem',
-        },
+        // {
+        //   label: 'Instagram',
+        //   url: 'https://www.instagram.com/kin_ecosystem/?hl=en',
+        // },
+        // {
+        //   label: 'Facebook',
+        //   url: 'https://www.facebook.com/KinEcosystem/',
+        // },
+        // {
+        //   label: 'Youtube',
+        //   url: 'https://www.youtube.com/c/KinEcosystem',
+        // },
       ],
     },
     {
       title: 'Connect',
       elements: [
-        { label: 'Kin Developer Portal', url: 'https://portal.kin.org/' },
+        // { label: 'Kin Developer Portal', url: 'https://portal.kin.org/' },
         { label: 'Discord', url: 'https://www.kin.org/developerdiscord' },
       ],
     },

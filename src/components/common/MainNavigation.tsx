@@ -9,8 +9,8 @@ import { Icon, IconName } from './Icon'
 import { Label } from './Label'
 
 const navLinks: Array<{ label: string; url: string; hideLg?: boolean }> = [
-  { label: 'Essentials', url: '/docs/essentials' },
-  { label: 'Use Cases', url: '/docs/use-cases', hideLg: true },
+  // { label: 'Essentials', url: '/docs/essentials' },
+  // { label: 'Use Cases', url: '/docs/use-cases', hideLg: true },
   { label: 'Developers', url: '/docs/developers' },
   { label: 'Non-Developers', url: '/docs/non-developers' },
   { label: 'Kinetic', url: '/docs/kinetic', hideLg: true },
