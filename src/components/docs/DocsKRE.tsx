@@ -4,7 +4,7 @@ import { DocsNavCard } from './DocsNavCard'
 export const DocsKRE: FC<{ catalyst?: boolean }> = ({ catalyst = false }) => {
   return (
     <div className="mt-8 grid gap-6 md:grid-cols-2">
-      <DocsNavCard
+      {/* <DocsNavCard
         title="Kin Rewards Engine"
         subtitle="Earn Kin by using it in your App"
         svgFile="money-bill-trend-up-solid"
@@ -17,7 +17,7 @@ export const DocsKRE: FC<{ catalyst?: boolean }> = ({ catalyst = false }) => {
           svgFile="sack-dollar-solid"
           link={{ url: 'https://kin.org/catalyst-fund/', label: 'Apply here' }}
         />
-      ) : null}
+      ) : null} */}
     </div>
   )
 }

@@ -1,12 +1,12 @@
 ---
 title: Android / Kotlin
-excerpt: Build your Kin app with Android / Kotlin
+excerpt: Build your Kinetic app with Android / Kotlin
 nav_title: Android / Kotlin
 ---
 
 ## Get Started or Add to an Existing Project
 
-Getting started with Kin is incredibly straightforward. Just follow the steps below to start transacting with Kin in your app.
+Getting started with Kinetic is incredibly straightforward. Just follow the steps below to start transacting with a token in your app.
 
 ### Installation
 
@@ -25,13 +25,13 @@ And add the dependency, normally in the module-level build.gradle:
 
 ```
 dependencies {
-	implementation 'com.github.kin-labs:kinetic-android-sdk:1.0.0-rc.5'
+	implementation 'com.github.kinnytips:kinetic-android-sdk:1.0.0-rc.5'
 }
 ```
 
 ### Instantiate the Kinetic Client
 
-The Kinetic Client will give you access to all the methods you need to work with Kin on the blockchain.
+The Kinetic Client will give you access to all the methods you need to work with Kinetic on the blockchain.
 
 We recommend starting with Devnet before moving on to Mainnet.
 
@@ -49,7 +49,7 @@ CoroutineScope(Dispatchers.IO).launch {
 }
 ```
 
-Don't have an App Index? Register your app on our Developer Portal so you can get your App Index that allows you to transact with our SDKs and earn via the KRE.
+Don't have an App Index? Register your app on our Developer Portal so you can get your App Index that allows you to transact with our SDKs.
 
 <RegisterApp />
 
@@ -76,7 +76,7 @@ val transaction = kinetic.closeAccount(owner.publicKey)
 
 Check a user balance by passing in the public key of the account you want to check.
 
-The response object includes your total Kin balance as well as detailing all of the Mints and Tokens held by that Public Key.
+The response object includes your total balance as well as detailing all of the Mints and Tokens held by that Public Key.
 
 ```kotlin
 val balance = kinetic.getBalance(owner.publicKey).balance
@@ -90,11 +90,9 @@ Send some test funds to a specific Public Key on Devnet.
 val airdropSignature = kinetic.requestAirdrop(owner.publicKey).signature
 ```
 
-### Transfer Kin
+### Transfer a Token
 
-Transfer Kin from a Keypair to any Public Key.
-
-Make sure to include your Transaction Type if you want it to count towards the KRE.
+Transfer a token from a Keypair to any Public Key.
 
 ```kotlin
 val txSignature = kinetic.makeTransfer(
@@ -159,10 +157,6 @@ If your app is ready for production, this is the place for you!
 
 <Production />
 
-## Earn Kin via the KRE
-
-<KRE />
-
 ## Contribute
 
 <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -170,7 +164,7 @@ If your app is ready for production, this is the place for you!
     title="Kinetic Android SDK"
     subtitle="Want to contribute to the Kinetic Android SDK?"
     icon="github"
-    link={{ url: 'https://github.com/kin-labs/kinetic-android-sdk', label: 'Contribute' }}
+    link={{ url: 'https://github.com/kinnytips/kinetic-android-sdk', label: 'Contribute' }}
   />
 </div>
 
@@ -180,7 +174,7 @@ If your app is ready for production, this is the place for you!
 
 ## Developer Best Practices
 
-Once you're ready to code, have a quick look at our [Developer Best Practices](/essentials/best-practices/) where we cover some useful topics that you'll want to keep in mind as you build out your Kin application.
+Once you're ready to code, have a quick look at our [Developer Best Practices](/essentials/best-practices/) where we cover some useful topics that you'll want to keep in mind as you build out your application.
 
 <BestPractices />
 
@@ -192,10 +186,10 @@ Here, we will outline the key API changes from the old version of our SDK to the
 
 **General notes**
 
-- For methods that request Kin be transferred, `amount` is the amount of Kin, not quarks.
+- For methods that request Kin be transferred, `amount` is the amount of the token, not quarks.
 - Response objects from requests have updated / changed.
 
-**Instantiate the Kin Client**
+**Instantiate the Client**
 
 ```kotlin
 // Kinetic
@@ -256,7 +250,7 @@ balanceObserver.add { kinBalance: KinBalance ->
 }
 ```
 
-**Transfer Kin**
+**Transfer a Token**
 
 ```kotlin
 // Kinetic

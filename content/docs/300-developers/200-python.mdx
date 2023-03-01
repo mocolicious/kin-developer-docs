@@ -1,12 +1,12 @@
 ---
 title: Python
-excerpt: Build your Kin app with Python
+excerpt: Build your app with Python
 nav_title: Python
 ---
 
 ## Get Started or Add to an Existing Project
 
-Getting started with Kin is incredibly straightforward. Just follow the steps below to start transacting with Kin in your app.
+Getting started with Kinetic is incredibly straightforward. Just follow the steps below to start transacting with Kinetic in your app.
 
 ### Installation
 
@@ -16,7 +16,7 @@ pip install kinetic-sdk
 
 ### Instantiate the Kinetic Client
 
-The Kinetic Client will give you access to all the methods you need to work with Kin on the blockchain.
+The Kinetic Client will give you access to all the methods you need to work with Fee subsidization on the blockchain.
 
 We recommend starting with Devnet before moving on to Mainnet.
 
@@ -30,7 +30,7 @@ kinetic_client = KineticSdk.setup(
 )
 ```
 
-Don't have an App Index? Register your app on our Developer Portal so you can get your App Index that allows you to transact with our SDKs and earn via the KRE.
+Don't have an App Index? Register your app on our Developer Portal so you can get your App Index that allows you to transact with our SDKs.
 
 <RegisterApp />
 
@@ -72,7 +72,7 @@ kinetic_client.close_account(
 
 Check a user balance by passing in the public key of the account you want to check.
 
-The response object includes your total Kin balance as well as detailing all of the Mints and Tokens held by that Public Key.
+The response object includes your total token balance as well as detailing all of the Mints and Tokens held by that Public Key.
 
 ```python
 balance = kinetic_client.get_balance(account=keypair.public_key)
@@ -92,11 +92,9 @@ airdrop = kinetic_client.request_airdrop(
 )
 ```
 
-### Transfer Kin
+### Transfer a token
 
-Transfer Kin from a Keypair to any Public Key.
-
-Make sure to include your Transaction Type if you want it to count towards the KRE.
+Transfer a token from a Keypair to any Public Key.
 
 ```python
 from kinetic_sdk import Commitment
@@ -109,15 +107,15 @@ transfer = kinetic_client.make_transfer(
     commitment=Commitment('Finalized'), # Optional: "Confirmed", "Finalized", "Processed"
     tx_type=TransactionType.P2P, # Optional, can be Unknown, None, Earn, Spend or P2P
     reference='some reference', # Optional, stored off-chain and returned via webhooks
-    sender_create=False # Optional, will make a Kin Token Account at that destination if true
+    sender_create=False # Optional, will make a Token Account at that destination if true
 )
 ```
 
 Note - `reference` is stored off chain and will be passed back to the app via webhooks if they are set up.
 
-### Transfer Kin Batch
+### Transfer a token Batch
 
-Make a batch transfer of Kin.
+Make a batch transfer of a token.
 
 ```python
 from kinetic_sdk import Commitment
@@ -146,7 +144,7 @@ batch_transfer = kinetic_client.make_transfer_batch(
     commitment=Commitment('Finalized'), # Optional: "Confirmed", "Finalized", "Processed"
     reference_id='some id', # Optional, stored off-chain and returned via webhooks
     reference_type='some reference', # Optional, stored off-chain, returned via webhooks
-    sender_create=False # Optional, will make a Kin Token Account at that destination
+    sender_create=False # Optional, will make a Token Account at that destination
 )
 ```
 
@@ -264,7 +262,7 @@ Created to help get you up and running as quickly as possible, these projects ca
   />
   <NavCard
     title="Kinetic Python Demo Server"
-    subtitle="A full-fat server based implementation of Kin Kinetic."
+    subtitle="A full-fat server based implementation of Kinetic."
     icon="github"
     link={{ url: 'https://github.com/kin-starters/kinetic-python-demo-server', label: 'Have a look' }}
   >
@@ -279,10 +277,6 @@ If your app is ready for production, this is the place for you!
 
 <Production />
 
-## Earn Kin via the KRE
-
-<KRE />
-
 ## Contribute
 
 <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -290,7 +284,7 @@ If your app is ready for production, this is the place for you!
     title="Kinetic Python SDK"
     subtitle="Want to contribute to the Kinetic Python SDK?"
     icon="github"
-    link={{ url: 'https://github.com/kin-labs/kinetic-python-sdk', label: 'Contribute' }}
+    link={{ url: 'https://github.com/kinnytips/kinetic-python-sdk', label: 'Contribute' }}
   />
 </div>
 
@@ -300,7 +294,7 @@ If your app is ready for production, this is the place for you!
 
 ## Developer Best Practices
 
-Once you're ready to code, have a quick look at our [Developer Best Practices](/essentials/best-practices/) where we cover some useful topics that you'll want to keep in mind as you build out your Kin application.
+Once you're ready to code, have a quick look at our [Developer Best Practices](/essentials/best-practices/) where we cover some useful topics that you'll want to keep in mind as you build out your application.
 
 <BestPractices />
 
@@ -312,10 +306,10 @@ Here, we will outline the key API changes from the old version of our SDK to the
 
 **General notes**
 
-- For methods that request Kin be transferred, `amount` is the amount of Kin, not quarks.
+- For methods that request a token be transferred, `amount` is the amount of the token, not quarks.
 - Response objects from requests have updated / changed.
 
-**Instantiate the Kin Client**
+**Instantiate the Client**
 
 ```python
 # Kinetic
@@ -381,13 +375,13 @@ airdrop = kinetic_client.request_airdrop(
 # Agora
 from agora.utils import kin_to_quarks
 
-token_account='kin token account for that keypair'
+token_account='token account for that keypair'
 amount = '1000'
 quarks = kin_to_quarks(amount)
 airdrop = kin_client.request_airdrop(token_account, quarks)
 ```
 
-**Transfer Kin**
+**Transfer a Token**
 
 ```python
 # Kinetic
@@ -402,7 +396,7 @@ transfer = kinetic_client.make_transfer(
     tx_type=TransactionType.P2P, # Optional, can be Unknown, None, Earn, Spend or P2P
     reference_id='some id', # Optional, stored off-chain and returned via webhooks
     reference_type='some reference', # Optional, stored off-chain and returned via webhooks
-    sender_create=False # Optional, will make a Kin Token Account at that destination if true
+    sender_create=False # Optional, will make a Token Account at that destination if true
 )
 
 # Agora
@@ -424,7 +418,7 @@ transfer = kin_client.submit_payment(payment)
 # The Agora invoice option has been replaced by 'reference'
 ```
 
-**Transfer Kin Batch**
+**Transfer a Token Batch**
 
 ```python
 # Kinetic
@@ -454,7 +448,7 @@ batch_transfer = kinetic_client.make_transfer_batch(
     commitment=Commitment('Finalized'), # Optional: "Confirmed", "Finalized", "Processed"
     reference_id='some id', # Optional, stored off-chain and returned via webhooks
     reference_type='some reference', # Optional, stored off-chain, returned via webhooks
-    sender_create=False # Optional, will make a Kin Token Account at that destination
+    sender_create=False # Optional, will make a Token Account at that destination
 )
 
 # Agora

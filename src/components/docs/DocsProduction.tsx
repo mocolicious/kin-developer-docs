@@ -6,7 +6,7 @@ export const DocsProduction: FC = () => {
     <div className="mt-8 grid gap-6 md:grid-cols-2">
       <DocsNavCard
         title="Production"
-        subtitle="Get your app ready and running on the Solana Mainnet so you can earn Kin via the KRE"
+        subtitle="Get your app ready and running on the Solana Mainnet"
         svgFile="coins-solid"
         link={{ url: '/docs/kinetic/kinetic-in-production', label: 'See more' }}
       />

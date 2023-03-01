@@ -32,7 +32,7 @@ const clientOptions = {
 const kineticClient = await KineticSdk.setup(clientOptions)
 ```
 
-Don't have an App Index? Register your app on our [Onboarding Form](#) so you can get your App Index that allows you to transact with our SDKs and earn via the KRE.
+Don't have an App Index? Register your app on our [Onboarding Form](#) so you can get your App Index that allows you to transact with our SDKs.
 
 <RegisterApp />
 
@@ -98,8 +98,6 @@ await kineticClient.requestAirdrop(airdropOptions)
 ### Transfer
 
 Transfer tokens from a Keypair to any Public Key.
-
-Make sure to include your Transaction Type if you want it to count towards the KRE.
 
 ```js
 import { Commitment, TransactionType } from '@kin-kinetic/solana';
@@ -279,7 +277,7 @@ Created to help get you up and running as quickly as possible, these projects ca
   />
   <NavCard
     title="Kinetic TypeScript Node Demo"
-    subtitle="A full-fat server based implementation of Kin Kinetic."
+    subtitle="A full-fat server based implementation of Kinetic."
     icon="github"
     link={{ url: 'https://github.com/kin-starters/kinetic-typescript-node-demo-server', label: 'Have a look' }}
   >
@@ -301,7 +299,7 @@ If your app is ready for production, this is the place for you!
     title="Kinetic TypeScript SDK"
     subtitle="Want to contribute to the Kinetic TypeScript SDK?"
     icon="github"
-    link={{ url: 'https://github.com/kin-labs/kinetic/tree/dev/libs/sdk', label: 'Contribute' }}
+    link={{ url: 'https://github.com/kinnytips/kinetic/tree/dev/libs/sdk', label: 'Contribute' }}
   />
 </div>
 
@@ -311,7 +309,7 @@ If your app is ready for production, this is the place for you!
 
 ## Developer Best Practices
 
-Once you're ready to code, have a quick look at our [Developer Best Practices](/essentials/best-practices/) where we cover some useful topics that you'll want to keep in mind as you build out your Kin application.
+Once you're ready to code, have a quick look at our [Developer Best Practices](/essentials/best-practices/) where we cover some useful topics that you'll want to keep in mind as you build out you application.
 
 <BestPractices />
 
@@ -323,7 +321,7 @@ Here, we will outline the key API changes from the old version of our SDK to the
 
 **General notes**
 
-- For methods that request Kin be transferred, `amount` is the amount of Kin, not quarks.
+- For methods that request a token be transferred, `amount` is the amount of the token, not quarks.
 - Response objects from requests have updated / changed.
 
 **Instantiate the Client**
@@ -368,7 +366,7 @@ await client.requestAirdrop({ account, amount, commitment })
 await client.requestAirdrop(tokenAccountPublicKey, quarks)
 ```
 
-**Transfer Kin**
+**Transfer a token**
 
 ```js
 // Kinetic
@@ -379,7 +377,7 @@ await client.submitPayment({ quarks, destination, sender, type })
 // The Agora invoice option has been replaced by 'reference'
 ```
 
-**Transfer Kin Batch**
+**Transfer a token Batch**
 
 ```js
 // Kinetic

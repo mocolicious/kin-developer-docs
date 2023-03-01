@@ -1,6 +1,6 @@
-# Kin Developer Docs
+# Kinny Developer Docs
 
-[developer.kin.org](https://developer.kin.org)
+[developer.kinny.io](https://developer.kinny.io)
 
 ## Local setup
 

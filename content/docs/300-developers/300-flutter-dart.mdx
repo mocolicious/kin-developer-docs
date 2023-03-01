@@ -1,12 +1,12 @@
 ---
 title: Flutter / Dart
-excerpt: Build your Kin app with Flutter / Dart
+excerpt: Build your app with Flutter / Dart
 nav_title: Flutter / Dart
 ---
 
 ## Get Started or Add to an Existing Project
 
-Getting started with Kin is incredibly straightforward. Just follow the steps below to start transacting with Kin in your app.
+Getting started with Kinetic is incredibly straightforward. Just follow the steps below to start transacting with a token in your app.
 
 ### Installation
 
@@ -20,7 +20,7 @@ Visit [pub.dev/packages/kinetic](https://pub.dev/packages/kinetic) for other ver
 
 ### Instantiate the Kinetic Client
 
-The Kinetic Client will give you access to all the methods you need to work with Kin on the blockchain.
+The Kinetic Client will give you access to all the methods you need to work with a token on the blockchain.
 
 We recommend starting with Devnet before moving on to Mainnet.
 
@@ -34,7 +34,7 @@ KineticSdkConfig sdkConfig = KineticSdkConfig(
 KineticSdk sdk = await KineticSdk.setup(sdkConfig);
 ```
 
-Don't have an App Index? Register your app on our Developer Portal so you can get your App Index that allows you to transact with our SDKs and earn via the KRE.
+Don't have an App Index? Register your app on our Developer Portal so you can get your App Index that allows you to transact with our SDKs.
 
 <RegisterApp />
 
@@ -73,7 +73,7 @@ CloseAccountResponse? res = await sdk.closeAccount(options: options);
 
 Check a user balance by passing in the public key of the account you want to check.
 
-The response object includes your total Kin balance as well as detailing all of the Mints and Tokens held by that Public Key.
+The response object includes your total balance as well as detailing all of the Mints and Tokens held by that Public Key.
 
 ```js
 GetBalanceOptions options = GetBalanceOptions(account: owner.publicKey);
@@ -95,11 +95,9 @@ RequestAirdropOptions options = RequestAirdropOptions(
 RequestAirdropResponse? res = await sdk.requestAirdrop(options);
 ```
 
-### Transfer Kin
+### Transfer a Token
 
-Transfer Kin from a Keypair to any Public Key.
-
-Make sure to include your Transaction Type if you want it to count towards the KRE.
+Transfer a token from a Keypair to any Public Key.
 
 ```js
 Keypair alice = await Keypair.random();
@@ -227,7 +225,7 @@ Created to help get you up and running as quickly as possible, these projects ca
 <div className="mt-8 grid gap-6 md:grid-cols-2">
   <NavCard
     title="Kinetic Dart SDK Starter app"
-    subtitle="A simple app that allows you to create keypairs, create an account, transfer Kin, and view your balance and account history."
+    subtitle="A simple app that allows you to create keypairs, create an account, transfer a token, and view your balance and account history."
     icon="github"
     link={{ url: 'https://github.com/kin-starters/kinetic-dart-starter', label: 'Have a look' }}
   />
@@ -239,10 +237,6 @@ If your app is ready for production, this is the place for you!
 
 <Production />
 
-## Earn Kin via the KRE
-
-<KRE />
-
 ## Contribute
 
 <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -250,7 +244,7 @@ If your app is ready for production, this is the place for you!
     title="Kinetic Dart SDK"
     subtitle="Want to contribute to the Kinetic Dart SDK?"
     icon="github"
-    link={{ url: 'https://github.com/kin-labs/kinetic-dart-sdk', label: 'Contribute' }}
+    link={{ url: 'https://github.com/kinnytips/kinetic-dart-sdk', label: 'Contribute' }}
   />
 </div>
 

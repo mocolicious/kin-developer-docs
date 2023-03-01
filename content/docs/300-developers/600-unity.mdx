@@ -1,12 +1,12 @@
 ---
 title: Unity
-excerpt: Build your Kin app with Unity
+excerpt: Build your app with Unity
 nav_title: Unity
 ---
 
 ## Get Started or Add to an Existing Project
 
-Getting started with Kin is incredibly straightforward. Just follow the steps below to start transacting with Kin in your app.
+Getting started with Kinetic is incredibly straightforward. Just follow the steps below to start transacting with a token in your app.
 
 ### Installation
 
@@ -14,13 +14,13 @@ Open [Unity Package Manager](https://docs.unity3d.com/Manual/upm-ui.html) window
 
 Click the `+` button in the status bar. Select `Add package from git URL` from the add menu. A text box and an Add button appear.
 
-Enter the `https://github.com/kin-labs/kinetic-unity-sdk.git` Git URL in the text box and click `Add`.
+Enter the `https://github.com/kinnytips/kinetic-unity-sdk.git` Git URL in the text box and click `Add`.
 
 Once the package is installed, in the Package Manager inspector you will have Samples. Click on `Import`
 
 ### Instantiate the Kinetic Client
 
-The Kinetic Client will give you access to all the methods you need to work with Kin on the blockchain.
+The Kinetic Client will give you access to all the methods you need to work with a token on the blockchain.
 
 We recommend starting with Devnet before moving on to Mainnet.
 
@@ -34,7 +34,7 @@ sdk = await KineticSdk.Setup(
 );
 ```
 
-Don't have an App Index? Register your app on our Developer Portal so you can get your App Index that allows you to transact with our SDKs and earn via the KRE.
+Don't have an App Index? Register your app on our Developer Portal so you can get your App Index that allows you to transact with our SDKs.
 
 <RegisterApp />
 
@@ -62,7 +62,7 @@ await sdk.CloseAccount(keypair.PublicKey);
 
 Check a user balance by passing in the public key of the account you want to check.
 
-The response object includes your total Kin balance as well as detailing all of the Mints and Tokens held by that Public Key.
+The response object includes your total token balance as well as detailing all of the Mints and Tokens held by that Public Key.
 
 ```c#
 var balance = await sdk.GetBalance(keypair.PublicKey);
@@ -76,11 +76,9 @@ Send some test funds to a specific Public Key on Devnet.
 await sdk.RequestAirdrop( account: keypair.PublicKey, amount: "1000" );
 ```
 
-### Transfer Kin
+### Transfer a Token
 
-Transfer Kin from a Keypair to any Public Key.
-
-Make sure to include your Transaction Type if you want it to count towards the KRE.
+Transfer a Token from a Keypair to any Public Key.
 
 ```c#
 await sdk.MakeTransfer(
@@ -200,10 +198,6 @@ If your app is ready for production, this is the place for you!
 
 <Production />
 
-## Earn Kin via the KRE
-
-<KRE />
-
 ## Contribute
 
 <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -211,7 +205,7 @@ If your app is ready for production, this is the place for you!
     title="Kinetic Unity SDK"
     subtitle="Want to contribute to the Kinetic Unity SDK?"
     icon="github"
-    link={{ url: 'https://github.com/kin-labs/kinetic-unity-sdk', label: 'Contribute' }}
+    link={{ url: 'https://github.com/kinnytips/kinetic-unity-sdk', label: 'Contribute' }}
   />
 </div>
 
@@ -221,6 +215,6 @@ If your app is ready for production, this is the place for you!
 
 ## Developer Best Practices
 
-Once you're ready to code, have a quick look at our [Developer Best Practices](/essentials/best-practices/) where we cover some useful topics that you'll want to keep in mind as you build out your Kin application.
+Once you're ready to code, have a quick look at our [Developer Best Practices](/essentials/best-practices/) where we cover some useful topics that you'll want to keep in mind as you build out your application.
 
 <BestPractices />

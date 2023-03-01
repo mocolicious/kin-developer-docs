@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: 'https://developer.kin.org',
+  siteUrl: 'https://developer.kinny.io',
   generateRobotsTxt: true,
 }

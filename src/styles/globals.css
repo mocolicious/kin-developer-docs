@@ -150,7 +150,7 @@
     filter: invert(100%) sepia(20%) hue-rotate(-281deg) saturate(5) contrast(1);
   }
 
-  .svgFile.svgFile-kin-circle-white {
+  .svgFile.svgFile-KinnyTechLogo_Icon {
     transform: scale(1.5);
     filter: brightness(85%);
   }
