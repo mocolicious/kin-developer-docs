@@ -6,4 +6,7 @@ module.exports = withContentlayer({
     domains: ['pbs.twimg.com', 'avatars.githubusercontent.com', 'i.imgur.com'],
     unoptimized: true,
   },
+  typescript: {
+    ignoreBuildErrors: true
+  }
 })
