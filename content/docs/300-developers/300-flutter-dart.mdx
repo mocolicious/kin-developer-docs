@@ -27,14 +27,14 @@ We recommend starting with Devnet before moving on to Mainnet.
 ```js
 KineticSdkConfig sdkConfig = KineticSdkConfig(
   index: 1,
-  endpoint: 'https://sandbox.kinetic.host',
+  endpoint: 'https://kinny-kinetic.azurewebsites.net',
   environment: 'devnet',
   logger: Logger(),
 );
 KineticSdk sdk = await KineticSdk.setup(sdkConfig);
 ```
 
-Don't have an App Index? Register your app on our Developer Portal so you can get your App Index that allows you to transact with our SDKs.
+Don't have an App Index? Register your app on our [Onboarding Form](https://forms.gle/XtYNA5uyHgCdLhb59) so you can get your App Index that allows you to transact with our SDKs.
 
 <RegisterApp />
 
@@ -162,7 +162,7 @@ List<TokenAccountsResponse>? res = await sdk.getTokenAccounts(options);
 
 ### Webhooks
 
-Whether you are using [Kinetic As A Service](/docs/kinetic/kinetic-as-a-service) or [Self-Hosting](/docs/kinetic/kinetic-hosting) to connect to Kinetic, once you're up and running, you'll be able to access [Kinetic Manager](/docs/kinetic/kinetic-configuration#kinetic-manager) to manage your app's settings.
+Access [Kinetic Manager](/docs/kinetic/kinetic-configuration#kinetic-manager) to manage your app's settings.
 
 This includes allowing you to configure your app to use a number of webhooks.
 
@@ -251,9 +251,3 @@ If your app is ready for production, this is the place for you!
 ## What If I Get Stuck?
 
 <Help />
-
-## Developer Best Practices
-
-Once you're ready to code, have a quick look at our [Developer Best Practices](/essentials/best-practices/) where we cover some useful topics that you'll want to keep in mind as you build out your Kin application.
-
-<BestPractices />

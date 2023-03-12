@@ -26,13 +26,13 @@ import { KineticSdk } from '@kin-kinetic/sdk'
 const clientOptions = {
   environment: 'devnet', // the name of your environment, e.g. devnet, mainnet
   index: 1, // your App Index
-  endpoint: 'https://sandbox.kinetic.host', // devnet endpoint
+  endpoint: 'https://kinny-kinetic.azurewebsites.net', // devnet endpoint
 }
 
 const kineticClient = await KineticSdk.setup(clientOptions)
 ```
 
-Don't have an App Index? Register your app on our [Onboarding Form](#) so you can get your App Index that allows you to transact with our SDKs.
+Don't have an App Index? Register your app on our [Onboarding Form](https://forms.gle/XtYNA5uyHgCdLhb59) so you can get your App Index that allows you to transact with our SDKs.
 
 <RegisterApp />
 
@@ -196,7 +196,7 @@ await kineticClient.getTokenAccounts(tokenAccountOptions)
 
 ### Webhooks
 
-Whether you are using [Kinetic As A Service](/docs/kinetic/kinetic-as-a-service) or [Self-Hosting](/docs/kinetic/kinetic-hosting) to connect to Kinetic, once you're up and running, you'll be able to access [Kinetic Manager](/docs/kinetic/kinetic-configuration#kinetic-manager) to manage your app's settings.
+Access [Kinetic Manager](/docs/kinetic/kinetic-configuration#kinetic-manager) to manage your app's settings.
 
 This includes allowing you to configure your app to use a number of webhooks.
 
@@ -265,13 +265,13 @@ Created to help get you up and running as quickly as possible, these projects ca
   />
   <NavCard
     title="Kinetic Playground"
-    subtitle="A multi-functional Kin Front-End that allows you to connect to a Kinetic Server or carry out Web-based transactions via our Kinetic Typescript SDK or SDK-less."
+    subtitle="A multi-functional Front-End that allows you to connect to a Kinetic Server or carry out Web-based transactions via our Kinetic Typescript SDK or SDK-less."
     icon="github"
     link={{ url: 'https://github.com/kin-starters/kinetic-playground', label: 'Have a look' }}
   />
   <NavCard
     title="Kinetic Node Starter"
-    subtitle="This starter shows how to implement a simple API that allows you to send KIN to a Solana account using Kinetic."
+    subtitle="This starter shows how to implement a simple API that allows you to send a token to a Solana account using Kinetic."
     icon="github"
     link={{ url: 'https://github.com/kin-starters/kinetic-node-starter', label: 'Have a look' }}
   />
@@ -306,102 +306,3 @@ If your app is ready for production, this is the place for you!
 ## What If I Get Stuck?
 
 <Help />
-
-## Developer Best Practices
-
-Once you're ready to code, have a quick look at our [Developer Best Practices](/essentials/best-practices/) where we cover some useful topics that you'll want to keep in mind as you build out you application.
-
-<BestPractices />
-
-## Upgrading to Kinetic from Agora?
-
-<Agora migrate />
-
-Here, we will outline the key API changes from the old version of our SDK to the new Kinetic version.
-
-**General notes**
-
-- For methods that request a token be transferred, `amount` is the amount of the token, not quarks.
-- Response objects from requests have updated / changed.
-
-**Instantiate the Client**
-
-```js
-// Kinetic
-import { KineticSdk } from '@kin-kinetic/sdk'
-const client = await KineticSdk.setup({ environment, index, endpoint })
-
-// Agora
-import { Client } from '@kinecosystem/kin-sdk-v2'
-const client = new Client(env, { appIndex })
-```
-
-**Create Account**
-
-```js
-// Kinetic
-await client.createAccount({ owner: keypair, commitment })
-
-// Agora
-await client.createAccount(privateKey)
-```
-
-**Check Balance**
-
-```js
-// Kinetic
-const { balance } = await client.getBalance({ account })
-
-// Agora
-const balance = await client.getBalance(publicKey)
-```
-
-**Airdrop Funds (devnet)**
-
-```js
-// Kinetic
-await client.requestAirdrop({ account, amount, commitment })
-
-// Agora
-await client.requestAirdrop(tokenAccountPublicKey, quarks)
-```
-
-**Transfer a token**
-
-```js
-// Kinetic
-await client.makeTransfer({ amount, destination, owner, commitment, type, reference, referenceType, senderCreate })
-
-// Agora
-await client.submitPayment({ quarks, destination, sender, type })
-// The Agora invoice option has been replaced by 'reference'
-```
-
-**Transfer a token Batch**
-
-```js
-// Kinetic
-const destinations = [{ destination, amount }]
-await client.makeTransferBatch({ owner, destinations, commitment, type })
-
-// Agora
-const earns = [{ destination, quarks }]
-await client.submitEarnBatch({ sender, earns })
-```
-
-**Get Transaction Details**
-
-```js
-// Kinetic
-const signature = 'transaction id string'
-await kineticClient.getTransaction({ signature })
-
-// Agora
-import bs58 from 'bs58'
-const transactionBuffer = bs58.decode(transactionId)
-const data = await kineticClient.getTransaction(transactionBuffer)
-```
-
-**Webhooks**
-
-In Agora, we used the `sign_transaction` webhook. That's been deprecated and we now have the `verify` webhook that can simply return a 200 status code to confirm verification of a request.

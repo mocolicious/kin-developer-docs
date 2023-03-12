@@ -12,13 +12,11 @@ const navLinks: Array<{ label: string; url: string; hideLg?: boolean }> = [
   // { label: 'Essentials', url: '/docs/essentials' },
   // { label: 'Use Cases', url: '/docs/use-cases', hideLg: true },
   { label: 'Developers', url: '/docs/developers' },
-  { label: 'Non-Developers', url: '/docs/non-developers' },
-  { label: 'Kinetic', url: '/docs/kinetic', hideLg: true },
-  { label: 'Integrations', url: '/docs/integrations', hideLg: true },
+  { label: 'Kinetic', url: '/docs/kinetic', hideLg: true }
 ]
 
 const iconLinks: Array<{ label: string; icon: IconName; url: string }> = [
-  { label: 'Discord', icon: 'discord', url: 'https://www.kin.org/developerdiscord' },
+  { label: 'Discord', icon: 'discord', url: 'http://community.kinny.io' },
 ]
 
 const NavLink: FC<{ label?: string; hideLabel?: boolean; hideLg?: boolean; icon?: IconName; url: string }> = ({
@@ -80,7 +78,7 @@ export const MainNavigation = () => {
         <div className="flex items-center space-x-2.5">
           <Link href="/">
             <a className="flex items-center space-x-2.5 font-bold text-slate-800 no-underline dark:text-white">
-              <Image height="30px" width="50px" alt={`Kin Foundation`} src={`/images/logos/KinnyTechLogo_Icon.svg`} />
+              <Image height="30px" width="50px" alt={`Kinny Tech`} src={`/images/logos/KinnyTechLogo_Icon.svg`} />
               <span>
                 <Label text="Developer Docs" />
               </span>

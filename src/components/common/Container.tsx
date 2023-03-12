@@ -8,14 +8,14 @@ import { Footer } from './Footer'
 export const Container: FC<any> = ({ children, ...customMeta }) => {
   const router = useRouter()
 
-  const baseUrl = `https://developer.kin.org/`
+  const baseUrl = `https://kinny.io/`
 
   const meta = {
-    title: 'Kin - Integrate cryptocurrency into your app experience',
+    title: 'Kinny - Integrate cryptocurrency into your app experience',
     description:
-      'Kin makes it easy for apps and brands to reward users and create exciting experiences with cryptocurrency, all while generating new revenue for themselves. Tear down the barriers to crypto development and join the global movement to transform the web.',
+      'Kinetic Fee Payer by Kinny makes it easy for apps and brands to reward users and create exciting experiences with cryptocurrency. Tear down the barriers to crypto development and join the global movement to transform the web.',
     url: customMeta.urlPath ? `${baseUrl}${customMeta.urlPath}` : baseUrl,
-    name: 'Kin Developer Docs',
+    name: 'Kinny Developer Docs',
     image: customMeta.imagePath ? `${baseUrl}${customMeta.imagePath}` : `${baseUrl}/images/SEO.png`,
     type: 'website',
     ...customMeta,

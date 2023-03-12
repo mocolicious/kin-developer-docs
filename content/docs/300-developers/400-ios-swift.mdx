@@ -27,13 +27,13 @@ We recommend starting with Devnet before moving on to Mainnet.
 import Kinetic
 
 let kinetic = await KineticSdk.setup(
-	endpoint: "https://sandbox.kinetic.host",
+	endpoint: "https://kinny-kinetic.azurewebsites.net",
 	environment: "devnet",
 	index: 1
 )
 ```
 
-Don't have an App Index? Register your app on our Developer Portal so you can get your App Index that allows you to transact with our SDKs.
+Don't have an App Index? Register your app on our [Onboarding Form](https://forms.gle/XtYNA5uyHgCdLhb59) so you can get your App Index that allows you to transact with our SDKs.
 
 <RegisterApp />
 
@@ -154,94 +154,3 @@ If your app is ready for production, this is the place for you!
 ## What If I Get Stuck?
 
 <Help />
-
-## Developer Best Practices
-
-Once you're ready to code, have a quick look at our [Developer Best Practices](/essentials/best-practices/) where we cover some useful topics that you'll want to keep in mind as you build out your application.
-
-<BestPractices />
-
-## Upgrading to Kinetic from Agora?
-
-<Agora migrate />
-
-Here, we will outline the key API changes from the old version of our SDK to the new Kinetic version.
-
-**General notes**
-
-- For methods that request a token be transferred, `amount` is the amount of the token, not quarks.
-- Response objects from requests have updated / changed.
-
-**Instantiate the Client**
-
-```swift
-// Kinetic
-import Kinetic
-
-let kinetic = await KineticSdk.setup(
-	endpoint: "https://sandbox.kinetic.host",
-	environment: "devnet",
-	index: 1
-)
-
-// Agora
-import KinBase
-
-let appInfoProvider = BasicAppInfoProvider(...)
-let env = KinEnvironment.Agora.mainNet(appInfoProvider: appInfoProvider)
-let kinAccountContext = KinAccountContext.Builder(env: env).createNewAccount().build()
-
-```
-
-**Create Account**
-
-```swift
-// Kinetic
-let owner = Keypair.random()
-let transaction = await kinetic.createAccount(owner: owner)
-
-// Agora
-let kinAccountContext = KinAccountContext.Builder(env: env).createNewAccount().build()
-```
-
-**Check Balance**
-
-```swift
-// Kinetic
-let balance = await kinetic.getBalance(account: owner.publicKey).balance
-
-// Agora
-let balanceObserver = kinAccountContext.observeBalance(mode: .active)
-balanceObserver.subscribe({ (kinBalance) in
-	let balance = (kinBalance.amount as NSNumber).intValue
-})
-```
-
-**Transfer a token**
-
-```swift
-// Kinetic
-let txSignature = await kinetic.makeTransfer(
-	amount: "5000",
-	destination: "BQJi5K2s4SDDbed1ArpXjb6n7yVUfM34ym9a179MAqVo",
-	owner: owner,
-    type: KineticKinMemo.TransactionType.spend
-).signature
-
-// Agora
-kinAccountContext.sendKinPayment(
-	KinPaymentItem(
-		amount: Kin(5000),
-		destAccount: PublicKey(base58: "BQJi5K2s4SDDbed1ArpXjb6n7yVUfM34ym9a179MAqVo")!
-	),
-	memo: KinBinaryMemo(
-		typeId: KinBinaryMemo.TransferType.spend.rawValue,
-		appIdx: 1
-	).kinMemo
-).then { payment in
-	let txSignature = payment.id.transactionHash.base58
-}
-.catch({ error in
-	// Handle error
-})
-```

@@ -20,72 +20,13 @@ For example, here's how it works with the TypeScript SDK:
 const clientOptions = {
   environment: 'mainnet', // the name of your mainnet environment as defined in your Kinetic instance
   index: 1, // your App Index
-  endpoint: 'https://your_kinetic_instance', // kinetic instance endpoint
+  endpoint: 'https://kinny-kinetic.azurewebsites.net', // kinetic instance endpoint
 }
 
 const kineticClient = await KineticSdk.setup(clientOptions)
 ```
 
 You'll notice in the example above, you have to pass in an `endpoint` when you set up the Kinetic Client. <br/> This setting gives us some options in the ways we can connect to Kinetic on mainnet:
-
-<div className="mt-8 grid gap-6 md:grid-cols-2">
-  <NavCard
-    title="Self Hosted"
-    subtitle="Host and manage your own Kinetic instance for maximum power."
-    svgFile="server-solid"
-    link={{ url: '/docs/kinetic/kinetic-in-production/#self-hosted', label: 'Learn more' }}
-  />
-  <NavCard
-    title="Kinetic As A Service"
-    subtitle="Connect to a Kinetic Service hosted by a 3rd party."
-    svgFile="globe-solid"
-    link={{ url: '/docs/kinetic/kinetic-in-production#kinetic-as-a-service', label: 'Find out more' }}
-  />
-</div>
-
-## Self Hosted
-
-For larger scale apps or those looking for more control.
-
-- Get insights into your transactions
-- Get insights into your hot-wallet usage
-- Configure multiple mints (e.g. other tokens, nfts, etc)
-- Stay on a specific Kinetic version
-- Unlimited log retention
-- Configure multiple hot-wallets
-- Customisable (Open Source)
-
-### Connecting To Your Own Kinetic Instance
-
-Point to `mainnet` as your `environment` and set your `endpoint` to where you've deployed your own Kinetic Instance.
-E.g. TypeScript SDK:
-
-```js
-const clientOptions = {
-  environment: 'devnet', // the name of your environment, e.g. devnet, mainnet
-  index: 1, // your App Index
-  endpoint: 'https://your_kinetic_instance', // your kinetic server address
-}
-
-const kineticClient = await KineticSdk.setup(clientOptions)
-```
-
-Your `endpoint` can be your own deployed Kinetic instance or a locally running instance.
-
-<div className="mt-8 grid gap-6 md:grid-cols-2">
-  <NavCard
-    title="Host Kinetic"
-    subtitle="Learn how to host your own Kinetic instance"
-    svgFile="server-solid"
-    link={{ url: '/docs/kinetic/kinetic-hosting', label: 'Time to Deploy!' }}
-  />
-  <NavCard
-    title="Run Kinetic Locally"
-    subtitle="Develop with Kinetic on your own machine"
-    svgFile="docker-brands"
-    link={{ url: '/docs/kinetic/kinetic-hosting#running-kinetic-locally', label: 'Go Local' }}
-  />
-</div>
 
 ### Configuration
 
@@ -98,40 +39,10 @@ Your `endpoint` can be your own deployed Kinetic instance or a locally running i
   />
 </div>
 
-## Kinetic As A Service
-
-If you want to connect to Kinetic on mainnet without running your own Kinetic server, then Kinetic As A Service is the way forward.
-
-### Kinecting to Kinetic As A Service
-
-Instantiate your Kinetic Client via your SDK of choice with the `endpoint` set to the endpoint provided by your Kinetic As A Service provider.
-E.g. TypeScript SDK:
-
-```js
-const clientOptions = {
-  environment: 'mainnet', // the name of your environment, get this from your KAAS provider
-  index: 1, // your App Index
-  endpoint: 'kinetic_as_a_service_endpoint', // get this from your KAAS provider
-}
-
-const kineticClient = await KineticSdk.setup(clientOptions)
-```
-
-### Kinetic As A Service Providers
-
-<div className="mt-8 grid gap-6 md:grid-cols-2">
-  <NavCard
-    title="Kinetic As A Service"
-    subtitle="Connect to a Kinetic Service hosted by a 3rd party."
-    svgFile="globe-solid"
-    link={{ url: '/docs/kinetic/kinetic-as-a-service', label: 'Check out your options' }}
-  />
-</div>
-
 That's it!
 
 ## What If I Get Stuck?
 
-Pop into the [`kinetic-hosting`](https://discord.com/channels/808859554997469244/1038005160439468082) channel on Discord and we'll give you a hand.
+Pop into the [`Kinny Discord`](http://community.kinny.io) and we'll give you a hand.
 
 <Help />

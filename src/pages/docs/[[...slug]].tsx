@@ -18,7 +18,6 @@ import { Card as ChildCard } from '../../components/common/Card'
 import { ChevronLink } from '../../components/common/ChevronLink'
 import { Container } from '../../components/common/Container'
 import { Label } from '../../components/common/Label'
-import { DocsAgora as Agora } from '../../components/docs/DocsAgora'
 import { DocsBestPractices as BestPractices } from '../../components/docs/DocsBestPractices'
 import { DocsBrandImage as BrandImage } from '../../components/docs/DocsBrandImage'
 import { DocsBubble as Bubble } from '../../components/docs/DocsBubble'
@@ -82,7 +81,6 @@ const mdxComponents = {
   Production,
   RegisterApp,
   KineticManager,
-  Agora,
   Bubble,
   BrandImage,
 }
@@ -93,7 +91,7 @@ const Page: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ doc, tree, b
   const MDXContent = useMDXComponent(doc.body.code || '')
 
   return (
-    <Container title={doc.title + ' – Kin Developer Docs'} description={doc.excerpt}>
+    <Container title={doc.title + ' – Kinny Developer Docs'} description={doc.excerpt}>
       <div className="relative mx-auto w-full max-w-screen-2xl lg:flex lg:items-start">
         <div
           style={{ height: 'calc(100vh - 64px)' }}

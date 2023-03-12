@@ -26,11 +26,11 @@ from kinetic_sdk import KineticSdk
 kinetic_client = KineticSdk.setup(
     environment='devnet', # the name of your environment, e.g. devnet, mainnet,
     index=1, # your App Index
-    endpoint='https://sandbox.kinetic.host', # devnet endpoint
+    endpoint='https://kinny-kinetic.azurewebsites.net', # devnet endpoint
 )
 ```
 
-Don't have an App Index? Register your app on our Developer Portal so you can get your App Index that allows you to transact with our SDKs.
+Don't have an App Index? Register your app on our [Onboarding Form](https://forms.gle/XtYNA5uyHgCdLhb59) so you can get your App Index that allows you to transact with our SDKs.
 
 <RegisterApp />
 
@@ -190,7 +190,7 @@ token_accounts = kinetic_client.get_token_accounts(account=keypair.publicKey)
 
 ### Webhooks
 
-Whether you are using [Kinetic As A Service](/docs/kinetic/kinetic-as-a-service) or [Self-Hosting](/docs/kinetic/kinetic-hosting) to connect to Kinetic, once you're up and running, you'll be able to access [Kinetic Manager](/docs/kinetic/kinetic-configuration#kinetic-manager) to manage your app's settings.
+Access [Kinetic Manager](/docs/kinetic/kinetic-configuration#kinetic-manager) to manage your app's settings.
 
 This includes allowing you to configure your app to use a number of webhooks.
 
@@ -296,14 +296,6 @@ If your app is ready for production, this is the place for you!
 
 Once you're ready to code, have a quick look at our [Developer Best Practices](/essentials/best-practices/) where we cover some useful topics that you'll want to keep in mind as you build out your application.
 
-<BestPractices />
-
-## Upgrading to Kinetic from Agora?
-
-<Agora migrate />
-
-Here, we will outline the key API changes from the old version of our SDK to the new Kinetic version.
-
 **General notes**
 
 - For methods that request a token be transferred, `amount` is the amount of the token, not quarks.
@@ -318,7 +310,7 @@ from kinetic_sdk import KineticSdk
 kinetic_client = KineticSdk.setup(
     environment='devnet', # the name of your environment, e.g. devnet, mainnet,
     index=1, # your App Index
-    endpoint='https://sandbox.kinetic.host', # devnet endpoint
+    endpoint='https://kinny-kinetic.azurewebsites.net', # devnet endpoint
 )
 
 # Agora

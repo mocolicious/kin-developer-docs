@@ -51,8 +51,6 @@ const content = {
     {
       title: 'Quick Links',
       elements: [
-        // { label: 'Kin Website', url: 'https://kin.org' },
-        // { label: 'Kin News', url: 'https://kin.org/news' },
         { label: 'Privacy Policy', url: '#' },
         { label: 'Cookie Policy', url: '#' },
         { label: 'Terms & Conditions', url: '#' },

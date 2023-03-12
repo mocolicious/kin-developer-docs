@@ -31,7 +31,7 @@ Apps using Kinetic need to connect to a Kinetic instance. On devnet, that's easy
 const clientOptions = {
   environment: 'devnet', // the name of your environment, e.g. devnet, mainnet
   index: 1, // your App Index
-  endpoint: 'https://sandbox.kinetic.host', // devnet endpoint
+  endpoint: 'https://kinny-kinetic.azurewebsites.net', // devnet endpoint
 }
 
 const kineticClient = await KineticSdk.setup(clientOptions)
@@ -48,46 +48,6 @@ Learn more here:
     subtitle="Learn how to connect your app to Kinetic on mainnet"
     svgFile="KinnyTechLogo_Icon"
     link={{ url: '/docs/kinetic/kinetic-in-production', label: 'Get producing...' }}
-  />
-</div>
-
-## Hosting Kinetic
-
-As part of your production app, you may choose to host your own Kinetic instance.
-
-See how here:
-
-<div className="mt-8 grid gap-6 md:grid-cols-2">
-  <NavCard
-    title="Host Kinetic"
-    subtitle="Learn how to host your own Kinetic instance"
-    svgFile="server-solid"
-    link={{ url: '/docs/kinetic/kinetic-hosting', label: 'Time to Deploy!' }}
-  />
-  <NavCard
-    title="Configure Kinetic"
-    subtitle="Set your Environment Variables and use Kinetic Manager to configure and manage your Kinetic instance."
-    svgFile="screwdriver-wrench-solid"
-    link={{ url: '/docs/kinetic/kinetic-configuration', label: 'Get fiddling...' }}
-  />
-  <NavCard
-    title="Kinetic Development"
-    subtitle="Develop with Kinetic on your own machine"
-    svgFile="docker-brands"
-    link={{ url: '/docs/kinetic/kinetic-hosting#running-kinetic-locally', label: 'Go Local' }}
-  />
-</div>
-
-## Kinetic As A Service
-
-Not interested in running your own Kinetic server? Never fear!
-
-<div className="mt-8 grid gap-6 md:grid-cols-2">
-  <NavCard
-    title="Kinetic As A Service"
-    subtitle="Connect to a Kinetic Service hosted by a 3rd party."
-    svgFile="globe-solid"
-    link={{ url: '/docs/kinetic/kinetic-as-a-service', label: 'See more' }}
   />
 </div>
 
