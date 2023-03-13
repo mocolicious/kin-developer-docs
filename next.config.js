@@ -8,5 +8,8 @@ module.exports = withContentlayer({
   },
   typescript: {
     ignoreBuildErrors: true
+  },
+  experimental: { 
+    newNextLinkBehavior: false
   }
 })

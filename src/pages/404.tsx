@@ -23,7 +23,7 @@ const NotFound = () => {
             <br />
             <span>
               You might want to look at{' '}
-              <Link href="/docs/essentials">
+              <Link legacyBehavior href="/docs/essentials">
                 <a>Essentials</a>
               </Link>{' '}
               first.

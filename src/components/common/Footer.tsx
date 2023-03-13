@@ -14,7 +14,7 @@ const content = {
     <>
       <p>
         A service by{' '}
-        <Link href={kinWebsiteLink}>
+        <Link legacyBehavior href={kinWebsiteLink}>
           <a
             className="inline-flex items-center space-x-1 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"
             target={isExternalUrl(kinWebsiteLink) ? '_blank' : undefined}
@@ -31,7 +31,7 @@ const content = {
       <br />
       <p>
         Website built with{' '}
-        <Link href={contentlayerLink}>
+        <Link legacyBehavior href={contentlayerLink}>
           <a
             className="inline-flex items-center space-x-1 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"
             target={isExternalUrl(contentlayerLink) ? '_blank' : undefined}
@@ -101,9 +101,9 @@ export const Footer: FC = () => {
     <div className="border-t border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-900/50">
       <div className="mx-auto w-full max-w-screen-2xl space-y-8 px-4 py-8 md:p-8 md:pb-12 lg:flex lg:justify-between lg:space-y-0 lg:p-16 lg:pb-20">
         <div>
-          <Link href="/">
+          <Link legacyBehavior href="/">
             <a className="flex items-center space-x-2.5 font-bold text-slate-800 no-underline dark:text-white">
-              <Image height="40px" width="70px" alt={`Kin Foundation`} src={`/images/logos/KinnyTechLogo_Icon.svg`} />{' '}
+              <Image height="40" width="70" alt={`Kin Foundation`} src={`/images/logos/KinnyTechLogo_Icon.svg`} />{' '}
             </a>
           </Link>
           <div className="mt-4 text-sm text-slate-500 dark:text-slate-400">{content.note}</div>
@@ -117,7 +117,7 @@ export const Footer: FC = () => {
               <ul className="mx-0 mt-4 list-none space-y-2 text-sm">
                 {elements.map(({ label, url }, index) => (
                   <li key={index}>
-                    <Link href={url}>
+                    <Link legacyBehavior href={url}>
                       <a
                         className="inline-flex items-center space-x-1 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"
                         target={isExternalUrl(url) ? '_blank' : undefined}

@@ -30,7 +30,7 @@ const NavLink: FC<{ label?: string; hideLabel?: boolean; hideLg?: boolean; icon?
   const active = router.pathname.split('/')[1] == url.replace('/', '')
 
   return (
-    <Link href={url}>
+    <Link legacyBehavior href={url}>
       <a
         className={`group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none ${
           active
@@ -76,9 +76,9 @@ export const MainNavigation = () => {
     <header className="fixed z-50 w-full border-b border-gray-200 bg-white bg-opacity-90 backdrop-blur backdrop-filter dark:border-gray-800 dark:bg-gray-950">
       <div className="mx-auto flex h-16 w-full max-w-screen-2xl items-center justify-between px-4 md:px-8 lg:px-16">
         <div className="flex items-center space-x-2.5">
-          <Link href="/">
+          <Link legacyBehavior href="/">
             <a className="flex items-center space-x-2.5 font-bold text-slate-800 no-underline dark:text-white">
-              <Image height="30px" width="50px" alt={`Kinny Tech`} src={`/images/logos/KinnyTechLogo_Icon.svg`} />
+              <Image height="30" width="50" alt={`Kinny Tech`} src={`/images/logos/KinnyTechLogo_Icon.svg`} />
               <span>
                 <Label text="Developer Docs" />
               </span>

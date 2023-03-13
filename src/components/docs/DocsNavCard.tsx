@@ -37,7 +37,7 @@ export const DocsNavCard: FC<
   return (
     <div className={`flex flex-col ${hero ? 'mb-4' : ''} ${largeIcon ? 'mt-5' : ''}`}>
       <div
-        className={`grow border border-gray-100 bg-gray-50 p-6 py-4 dark:border-gray-800 dark:bg-gray-900 
+        className={`not-prose grow border border-gray-100 bg-gray-50 p-6 py-4 dark:border-gray-800 dark:bg-gray-900 
         ${link ? 'rounded-t-2xl border-b-0' : 'rounded-2xl'} ${
           icon || svgFile || pngFile || jpgFile ? 'mt-6' : 'mt-0'
         }`}
@@ -55,8 +55,8 @@ export const DocsNavCard: FC<
             h-12 w-12 rounded-full border border-violet-200 bg-violet-100 p-2.5 text-violet-600 dark:border-violet-900 dark:bg-violet-900/50 dark:text-violet-500`}
             >
               <Image
-                height="300px"
-                width="300px"
+                height="300"
+                width="300"
                 alt={`${svgFile || pngFile || jpgFile}`}
                 className={imageClass}
                 src={imageSrc}

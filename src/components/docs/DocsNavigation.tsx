@@ -31,7 +31,7 @@ const NavLink: FC<{
             }`,
       )}
     >
-      <Link href={url}>
+      <Link legacyBehavior href={url}>
         <a className="flex h-full grow items-center space-x-2">
           <span>{title}</span>
           {label && <Label text={label} />}

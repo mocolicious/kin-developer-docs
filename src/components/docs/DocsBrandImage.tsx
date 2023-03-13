@@ -29,7 +29,7 @@ export function DocsBrandImage({ name, width }: DocsBrandImageProps) {
 function DocsBrandImageImage({ src, label, width }: { src: string; label: string; width?: number }) {
   return (
     <div className={'flex flex-col items-center space-y-2'}>
-      <img alt={label} src={src} className={`h-[100px]`} width={width} />
+      <Image alt={label} src={src} className={`h-[100px]`} width={width} />
       <DocsBrandImageLink href={src} label={label} />
     </div>
   )
