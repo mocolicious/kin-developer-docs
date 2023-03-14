@@ -88,7 +88,7 @@ const mdxComponents = {
 const Page: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ doc, tree, breadcrumbs, childrenTree }) => {
   const router = useRouter()
   useLiveReload()
-  const MDXContent = useMDXComponent(doc.body.code || '')
+  const MDXContent = useMDXComponent(doc.body.code || '', )
 
   return (
     <Container title={doc.title + ' – Kinny Developer Docs'} description={doc.excerpt}>
