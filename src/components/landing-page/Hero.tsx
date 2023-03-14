@@ -5,7 +5,7 @@ import { Paragraph } from './Paragraph'
 import Image from 'next/image'
 
 const content = {
-  heading: 'Easy. Quick. Intuitive.',
+  heading: 'Easy. Quick. Intuitive. Feeless',
   text: 'Integrate cryptocurrency into your app experience',
   heroImage: '/images/kin-cube.png',
 }
@@ -54,13 +54,6 @@ export const Hero: FC = () => {
             link={{ url: '/docs/non-developers', label: 'See more' }}
           />
         </div>
-        <NavCard
-          hero
-          title="Integrations"
-          subtitle="Easily power-up your App with these amazing integrations."
-          svgFile="KinnyTechLogo_Icon"
-          link={{ url: '/docs/integrations', label: 'See more' }}
-        />
       </div>
     </div>
   )
