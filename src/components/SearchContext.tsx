@@ -35,7 +35,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
         name: 'Discord Community',
         keywords: 'Kin Developer Community',
         section: 'External',
-        perform: () => window.open('https://www.kin.org/developerdiscord', '_ blank'),
+        perform: () => window.open('http://community.kinny.io/', '_ blank'),
       },
       {
         id: '3-twitter',
