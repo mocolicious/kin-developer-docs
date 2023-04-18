@@ -3,11 +3,13 @@ import { DocsNavCard as NavCard } from '../../components/docs/DocsNavCard'
 import { Heading } from './Heading'
 import { Paragraph } from './Paragraph'
 import Image from 'next/image'
+import src from '@tailwindcss/typography'
+import link from 'next/link'
 
 const content = {
   heading: 'Easy. Quick. Intuitive. Feeless.',
   text: 'Integrate cryptocurrency into your app experience',
-  heroImage: '/images/kin-cube.png',
+  heroImage: '/images/KinnyCoins.png',
 }
 
 export const Hero: FC = () => {
@@ -20,7 +22,7 @@ export const Hero: FC = () => {
         </div>
         <div className="relative mt-0 flex w-full items-start">
           {/* TODO don't use image as thumbnail if possible */}
-          <Image alt="Hero Image" className="hidden md:block md:scale-125 lg:scale-150 " src={content.heroImage} />
+          <Image alt="Hero Image" className="hidden md:block md:scale-125 lg:scale-150 " fill src={content.heroImage} />
         </div>
       </div>
       <div className="my-10 mx-auto mb-0 max-w-5xl space-y-12 px-3">
