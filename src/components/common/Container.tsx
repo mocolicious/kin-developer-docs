@@ -16,7 +16,7 @@ export const Container: FC<any> = ({ children, ...customMeta }) => {
       'Kinetic Fee Payer by Kinny makes it easy for apps and brands to reward users and create exciting experiences with cryptocurrency. Tear down the barriers to crypto development and join the global movement to transform the web.',
     url: customMeta.urlPath ? `${baseUrl}${customMeta.urlPath}` : baseUrl,
     name: 'Kinny Developer Docs',
-    image: customMeta.imagePath ? `${baseUrl}${customMeta.imagePath}` : `${baseUrl}/images/SEO.png`,
+    image: customMeta.imagePath ? `${baseUrl}${customMeta.imagePath}` : `${baseUrl}/images/KinnyCoins.png`,
     type: 'website',
     ...customMeta,
   }
