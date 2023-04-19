@@ -3185,7 +3185,7 @@ __metadata:
     broken-link-checker: ^0.7.8
     cheerio: ^1.0.0-rc.10
     classnames: ^2.3.1
-    contentlayer: ^0.3.0
+    contentlayer: ^0.3.1
     date-fns: ^2.28.0
     eslint: ^8.36.0
     eslint-config-next: 12.1.5
@@ -3215,7 +3215,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"contentlayer@npm:^0.3.0":
+"contentlayer@npm:^0.3.1":
   version: 0.3.1
   resolution: "contentlayer@npm:0.3.1"
   dependencies:
