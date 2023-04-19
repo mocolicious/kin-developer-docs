@@ -3153,7 +3153,7 @@ __metadata:
     broken-link-checker: ^0.7.8
     cheerio: ^1.0.0-rc.12
     classnames: ^2.3.2
-    contentlayer: ^0.3.1
+    contentlayer: ^0.3.0
     date-fns: ^2.29.3
     eslint: ^8.38.0
     eslint-config-next: 13.3.0
@@ -3165,8 +3165,8 @@ __metadata:
     markdown-to-jsx: ^7.2.0
     mdast-util-mdx: ^2.0.1
     mdast-util-to-markdown: ^1.5.0
-    next: ^13.3.0
-    next-contentlayer: ^0.3.1
+    next: ^13.2.4
+    next-contentlayer: ^0.3.0
     next-sitemap: ^4.0.7
     postcss: ^8.4.22
     postcss-import: ^15.1.0
@@ -3183,7 +3183,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"contentlayer@npm:^0.3.1":
+"contentlayer@npm:^0.3.0":
   version: 0.3.1
   resolution: "contentlayer@npm:0.3.1"
   dependencies:
@@ -7230,7 +7230,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-contentlayer@npm:^0.3.1":
+"next-contentlayer@npm:^0.3.0":
   version: 0.3.1
   resolution: "next-contentlayer@npm:0.3.1"
   dependencies:
@@ -7260,7 +7260,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:^13.3.0":
+"next@npm:^13.2.4":
   version: 13.3.0
   resolution: "next@npm:13.3.0"
   dependencies:
