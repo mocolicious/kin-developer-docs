@@ -3,13 +3,11 @@ import { DocsNavCard as NavCard } from '../../components/docs/DocsNavCard'
 import { Heading } from './Heading'
 import { Paragraph } from './Paragraph'
 import Image from 'next/image'
-import src from '@tailwindcss/typography'
-import link from 'next/link'
 
 const content = {
   heading: 'Easy. Quick. Feeless.',
   text: 'Integrate cryptocurrency into your app experience',
-  heroImage: '/images/kin-cube.png',
+  heroImage: '/images/KinnyCoins.png',
 }
 
 export const Hero: FC = () => {
