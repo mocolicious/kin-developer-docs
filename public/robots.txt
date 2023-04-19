@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://kinny.io
+
+# Sitemaps
+Sitemap: https://kinny.io/sitemap.xml
