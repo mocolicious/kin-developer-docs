@@ -50,10 +50,10 @@ export const Hero: FC = () => {
           />
           <NavCard
             hero
-            title="Not a Dev? No Problem."
+            title="Learn More."
             subtitle="Build powerful Apps with no coding experience."
             svgFile="KinnyTechLogo_Icon"
-            link={{ url: '/docs/non-developers', label: 'See more' }}
+            link={{ url: '/docs/about/kinetic-fee-payer-by-kinny', label: 'See more' }}
           />
         </div>
       </div>
