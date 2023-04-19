@@ -7,7 +7,7 @@ module.exports = withContentlayer({
     unoptimized: true,
   },
   typescript: {
-    ignoreBuildErrors: true
+    ignoreBuildErrors: false
   },
   experimental: { 
     newNextLinkBehavior: false
