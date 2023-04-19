@@ -7,7 +7,7 @@ import src from '@tailwindcss/typography'
 import link from 'next/link'
 
 const content = {
-  heading: 'Easy. Quick. Intuitive. Feeless.',
+  heading: 'Easy. Quick. Feeless.',
   text: 'Integrate cryptocurrency into your app experience',
   heroImage: '/images/KinnyCoins.png',
 }
