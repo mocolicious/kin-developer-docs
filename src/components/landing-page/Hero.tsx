@@ -9,7 +9,7 @@ import link from 'next/link'
 const content = {
   heading: 'Easy. Quick. Feeless.',
   text: 'Integrate cryptocurrency into your app experience',
-  heroImage: '/images/KinnyCoins.png',
+  heroImage: '/images/kin-cube.png',
 }
 
 export const Hero: FC = () => {
