@@ -3,10 +3,12 @@ import { DocsNavCard as NavCard } from '../../components/docs/DocsNavCard'
 import { Heading } from './Heading'
 import { Paragraph } from './Paragraph'
 import Image from 'next/image'
+import src from '@tailwindcss/typography'
+import link from 'next/link'
 
 const content = {
   heading: 'Easy. Quick. Feeless.',
-  text: 'Integrate cryptocurrency into your app experience',
+  text: 'Easily add Solana tokens and NFTs into your web3 application. Offer a zero fee experience for the best user experience.',
   heroImage: '/images/KinnyCoins.png',
 }
 
@@ -14,7 +16,7 @@ export const Hero: FC = () => {
   return (
     <div className="mb-12 w-full space-y-12 px-2 pt-8 md:space-y-20 md:pt-16 lg:px-0 lg:pt-20">
       <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-16 px-4 md:grid-cols-2 md:px-8 ">
-        <div className="z-1 w-64 space-y-8 sm:max-w-md">
+        <div className="z-1 space-y-8 sm:max-w-md">
           <Heading level={0}>{content.heading}</Heading>
           <Paragraph className="text-lg">{content.text}</Paragraph>
         </div>
